@@ -1,12 +1,13 @@
-pipeline{
-    agent{
+pipeline {
+    agent {
         label 'java-slave'
     }
-    stages{
-        stage('build'){
-            steps{
-                echo "ajay-devops"
-                sh 'hostname -i'
+    stages {
+        stage ('Hello'){
+            steps {
+                echo "Hello world"
+                sh 'date'
+                echo "executing my first stage"
             }
         }
     }
