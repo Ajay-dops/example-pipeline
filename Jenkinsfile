@@ -3,18 +3,15 @@
         label " java-slave"
     }
     environment{
-        NAME = "Ajay"
-        COUNTRY = "India"
+        NAME = "ajay"
+        JOB = " DevOps "
     }
     stages{
-        stage("Build"){
+        stage("build"){
             environment{
-                LOCATION = "USA"
-            }
-            steps{
-                echo "your ${NAME}"
-                echo "which ${COUNTRY}"
-                echo " your current ${LOCATION}"
+                NAME = "Srinu"//presedence //
+                echo " printing my name ${NAME} "
+                echo " prinitng my job ${JOB}"
             }
         }
     }
