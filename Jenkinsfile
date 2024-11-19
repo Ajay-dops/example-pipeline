@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage(build){
             steps{
-                sh " hostname -i"
+                sh " docker pull nginx"
             }
         }
     }
