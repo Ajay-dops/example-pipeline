@@ -18,11 +18,7 @@
                 sh " docker login -u ${DEVOPS_CREDS_USR} -p ${DEVOPS_CREDS_PSW}"
                 echo " pusing the image to repo"
                 sh " docker push ajaydops/nginx:b5 "
-            
-                
-
             }
         }
-        }
     }
- }
+}
