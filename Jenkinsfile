@@ -1,21 +1,20 @@
  pipeline{
     agent{
-        label "java-slave"
+        label " java-slave"
     }
     environment{
-        NAME = "ajay"
-        COURSE = "devops"
-
+        NAME = "Ajay"
+        COUNTRY = " india"
     }
     stages{
         stage("Build"){
             environment{
-                CLOUD = "gcp"
+                LOCATION : "USA"
             }
             steps{
-                echo " welcome ${NAME}"
-                echo " you enrolled for ${COURSE} course"
-                echo " you are certified in ${CLOUD}"
+                echo "your ${NAME}"
+                echo "which ${COUNTRY}"
+                echo " your current ${LOCATION}"
             }
         }
     }
