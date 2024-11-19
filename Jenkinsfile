@@ -4,7 +4,7 @@
     }
     environment{
         NAME = "Ajay"
-        COUNTRY = " india"
+        COUNTRY = "India"
     }
     stages{
         stage("Build"){
