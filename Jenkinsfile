@@ -1,7 +1,5 @@
-pipeline{
-    agent{
-        label "any"
-    }
+ pipeline{
+    agent any
     stages{
         stage("Build"){
             steps{
