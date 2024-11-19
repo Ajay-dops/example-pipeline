@@ -8,12 +8,12 @@
     stages{
         stage("DockerBP"){
             steps{
-                sh "Docker pull nginx"
+                sh "docker pull nginx"
                 echo " printing images before changing the tag"
-                sh " Docker images"
-                sh " Docker tag nginx ajaydops/nginx:b5"
+                sh " docker images"
+                sh " docker tag nginx ajaydops/nginx:b5"
                 echo " priting images after changing the tag"
-                sh " Docker images"
+                sh " docker images"
                 echo " Dcoker login"
                 sh " docker login -u ${DEVOPS_CREDS_USR} -p ${DEVOPS_CREDS_PSW}"
                 echo " pusing the image to repo"
