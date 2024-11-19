@@ -1,9 +1,9 @@
- pipeline{
+pipeline{
     agent{
         label "any"
     }
     stages{
-        stage(Build){
+        stage("Build"){
             steps{
                 echo "welcome to tools demo"
                 sh " mvn --version"
