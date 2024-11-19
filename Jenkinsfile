@@ -9,7 +9,7 @@
     stages{
         stage("Build"){
             environment{
-                LOCATION : "USA"
+                LOCATION = "USA"
             }
             steps{
                 echo "your ${NAME}"
