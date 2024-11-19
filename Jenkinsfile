@@ -1,16 +1,16 @@
  pipeline{
     agent{
-        label " java-slave"
+        label "java-slave"
     }
     environment{
         NAME = "ajay"
-        JOB = " DevOps "
+        JOB = " DevOps"
     }
     stages{
         stage("build"){
             environment{
-                NAME = "Srinu"//presedence //
-                echo " printing my name ${NAME} "
+                NAME = "Srinu"
+                echo " printing my name ${NAME}"
                 echo " prinitng my job ${JOB}"
             }
         }
