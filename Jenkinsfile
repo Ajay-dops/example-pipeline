@@ -1,21 +1,13 @@
 pipeline{
     agent{
-        label 'java-slave'
+        label " java-slave"
     }
     stages{
-        stage("hello"){
+        stage("Build"){
             steps{
-            echo"printing hello"
-            }
-        }
-        stage('scriptblock'){
-            steps{
-                script{
-                def course = "jenkins"
-                if (course == "k8s")
-                 println("thanks for enrolling in k8s")
-                else
-                 println("do learn")
+                retry(3){
+                    echo "welcome to jenkins pipelin"
+                    error"printing the error message"
                 }
             }
         }
