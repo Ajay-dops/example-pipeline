@@ -1,10 +1,21 @@
  pipeline{
-    agent any
+    agent{
+        label "java-slave"
+    }
+    environment{
+        NAME = ajay
+        COURSE = devops
+
+    }
     stages{
         stage("Build"){
+            environment{
+                CLOUD = gcp
+            }
             steps{
-                echo "welcome to tools demo"
-                sh " mvn --version"
+                echo " welcome ${NAME}"
+                echo " you enrolled for ${COURSE} course"
+                echo " you are certified in ${CLOUD}"
             }
         }
     }
