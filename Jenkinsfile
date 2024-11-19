@@ -3,14 +3,14 @@
         label "java-slave"
     }
     environment{
-        NAME = ajay
-        COURSE = devops
+        NAME = "ajay"
+        COURSE = "devops"
 
     }
     stages{
         stage("Build"){
             environment{
-                CLOUD = gcp
+                CLOUD = "gcp"
             }
             steps{
                 echo " welcome ${NAME}"
