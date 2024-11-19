@@ -10,6 +10,8 @@
         stage("build"){
             environment{
                 NAME = "Srinu"
+            }
+            steps{
                 echo " printing my name ${NAME}"
                 echo " prinitng my job ${JOB}"
             }
