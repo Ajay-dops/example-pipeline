@@ -2,49 +2,30 @@ pipeline{
     agent{
         label "java-slave"
     }
-    environment{
-        DEPLOY_TO = "production"
-    }
     stages{
         stage("Build"){
-            steps{
-                echo " Building the project"
-            }
+             
         }
-        stage("sonar"){
-            steps{
-                echo " running the sonar"
-            }
-        }
-        stage("Deploy to stg"){
-            when{
-                expression{
-                    env.BRANCH_NAME ==~/(production|staging|main)/
-                } 
-            }
-            steps{
-                echo " deploying to stg"
-            }
-        }
-        stage(" Deploy to prod"){
-            when {
-                allOf{
-                    branch 'main'
-                    environment name: "DEPLOY_TO", value: "production"
+        stage('Scans'){
+            parallel{
+                stage('Sonar'){
+                    steps{
+                    echo 'running sonar scan'
+                    sleep 10
+                    }
                 }
-            }
-            steps{
-                echo " Deploying to prod"
-            }
-        }
-        stage("non-prd"){
-            when{
-                expression{
-                    env.GIT_TAG == 'v1.9'
+                stage('checkmarx'){
+                    steps{
+                        echo 'running checkmarx scan'
+                        sleep 10
+                    }
                 }
-            }
-            steps{
-                echo " deploying to non-prd"
+                stage('contrast'){
+                    steps{
+                        echo " running constrant scan"
+                        sleep 10
+                    }
+                }
             }
         }
     }
