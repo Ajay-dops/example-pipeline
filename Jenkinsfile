@@ -5,7 +5,7 @@ pipeline{
     parameters{
         string (name: 'PERSON', defaultvalue: 'siva', description: 'Enter your name')
         choice (name: 'COURSE', choices: ['k8s', 'jenkins','docker'], description: 'select the course')
-        booleanParam (name: 'CLOUD', defaulttvalue: true, description: 'do you want to learn')
+        booleanParam (name: 'CLOUD', defaultvalue: true, description: 'do you want to learn')
     }
     environment{
         CI_SERVER = 'jenkins'
