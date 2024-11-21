@@ -1,6 +1,6 @@
 pipeline{
     agent{
-        label "java-label"
+        label "java-slave"
     }
     parameters{
         choice(name: 'deployToprod', 
