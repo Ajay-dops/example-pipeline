@@ -16,9 +16,7 @@ pipeline{
         }
         stage("deploy to prod"){
             when {
-                expression{
-                    params.deployToprod == 'yes'
-                }
+                params.deployToprod == 'yes'
             }
             steps{
                 echo "deploying to production"
