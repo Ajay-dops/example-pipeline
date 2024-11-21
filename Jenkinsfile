@@ -19,7 +19,7 @@ pipeline{
         stage("Deploy to stg"){
             when{
                 expression{
-                    BRANCH_NAME == /(production|staging)/
+                    BRANCH_NAME == /(production|staging|main)/
                 } 
             }
             steps{
