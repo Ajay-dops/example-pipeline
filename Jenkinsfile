@@ -18,9 +18,7 @@ pipeline{
         }
         stage("Deploy to stg"){
             when{
-                expression{
-                    env.BRANCH_NAME ==~ /(production|staging|main)/
-                } 
+                    branch  "main|master"
             }
             steps{
                 echo " deploying to stg"
