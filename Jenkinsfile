@@ -20,6 +20,9 @@ pipeline{
                     params.deployToprod == 'yes'
                 }
             }
+            steps{
+                echo "deploying to production"
+            }
         }
     }
 
