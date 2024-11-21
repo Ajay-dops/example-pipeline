@@ -1,39 +1,22 @@
-pipeline{
+peipeline{
     agent{
         label "java-slave"
     }
+    parameters{
+        string (name: 'PERSON', defaultvalue: 'siva', description: 'Enter your name')
+        choice (name: 'COURSE', choices: ['k8s', 'jenkins','docker'], description: 'select the course')
+        booleanParam (name: 'CLOUD', defaultvalue: true, description: 'do you want to learn')
+    }
+    environment{
+        CI_SERVER = 'jenkins'
+    }
     stages{
-        stage("Build"){
+        stage('Firststage'){
             steps{
-               echo "building the project"
-            }
-             
-        }
-        stage('Scans'){
-            parallel{
-                stage('Sonar'){
-                    steps{
-                    echo 'running sonar scan'
-                    sleep 10
-                    }
-                }
-                stage('checkmarx'){
-                    steps{
-                        echo 'running checkmarx scan'
-                        sleep 10
-                    }
-                }
-                stage('contrast'){
-                    steps{
-                        echo " running constrant scan"
-                        sleep 10
-                    }
-                } 
-            }
-        }
-        stage('deploy'){
-            steps{
-                echo " deploying the project"
+                echo " welcome ${param.PERSON}"
+                echo " you enrolled for ${params.COURSE}"
+                echo " you want to learn in ${params.CLOUD}"
+                echo "you are using ${CI_SERVER}"
             }
         }
     }
