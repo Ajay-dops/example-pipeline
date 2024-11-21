@@ -18,10 +18,23 @@ pipeline{
         }
         stage("Deploy to stg"){
             when{
-                    branch  "main|master"
+                expression{
+                    env.BRANCH_NAME ==~/(production|staging|main)/
+                } 
             }
             steps{
                 echo " deploying to stg"
+            }
+        }
+        stage(" Deploy to prod"){
+            when {
+                allOf{
+                    branch 'main'
+                    environment name: "DEPLOY_TO", value: "production"
+                }
+            }
+            steps{
+                echo " Deploying to prod"
             }
         }
     }
