@@ -37,5 +37,15 @@ pipeline{
                 echo " Deploying to prod"
             }
         }
+        stage("non-prd"){
+            when{
+                expression{
+                    env.GIT_TAG == 'v1.9'
+                }
+            }
+            steps{
+                echo " deploying to non-prd"
+            }
+        }
     }
 }
