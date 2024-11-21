@@ -5,8 +5,7 @@ pipeline{
     parameters{
         choice(name: 'deployToprod', 
             choices: ['yes','no'],
-            description: 'Deploy to prodccution'
-            )
+            description: 'delpoy to proddev')
     }
     stages{
         stage("build"){
@@ -16,7 +15,9 @@ pipeline{
         }
         stage("deploy to prod"){
             when {
+                expression{
                 params.deployToprod == 'yes'
+                }
             }
             steps{
                 echo "deploying to production"
