@@ -3,7 +3,7 @@ pipeline{
         label "java-slave"
     }
     parameters{
-        string (name: 'PERSON', defaultValue: 'siva', description: 'Enter your name')
+        string (name: 'person', defaultValue: 'siva', description: 'Enter your name')
         choice (name: 'COURSE', choices: ['k8s', 'jenkins','docker'], description: 'select the course')
         booleanParam (name: 'CLOUD', defaultValue: true, description: 'do you want to learn')
     }
@@ -13,11 +13,10 @@ pipeline{
     stages{
         stage('Firststage'){
             steps{
-                echo " welcome ${params.PERSON}"
+                echo " welcome ${params.person}"
                 echo " you enrolled for ${params.COURSE}"
                 echo " you want to learn in ${params.CLOUD}"
                 echo "you are using ${CI_SERVER}"
             }
         }
     }
-}
