@@ -4,6 +4,9 @@ pipeline{
     }
     stages{
         stage("Build"){
+            steps{
+                building the project
+            }
              
         }
         stage('Scans'){
@@ -25,7 +28,12 @@ pipeline{
                         echo " running constrant scan"
                         sleep 10
                     }
-                }
+                } 
+            }
+        }
+        stage('deploy'){
+            steps{
+                echo " deploying the project"
             }
         }
     }
