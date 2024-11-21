@@ -3,7 +3,7 @@ pipeline{
         label "java-slave"
     }
     environment{
-        DEPLOY_TO = "production"
+        DEPLOY_TO = "product"
     }
     stages{
         stage("Build"){
@@ -11,7 +11,7 @@ pipeline{
                 environment name: "DEPLOY_TO", value: "production"
             }
             steps{
-                echo " Building the DevOps"
+                echo "Building the project"
             }
         }
     }
