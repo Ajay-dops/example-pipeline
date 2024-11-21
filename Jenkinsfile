@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage("Build"){
             when{
-                environment name: 'DEPLOY_TO', value 'production'
+                environment name: 'DEPLOY_TO', value: 'production'
             }
             steps{
                 echo "Building the project"
