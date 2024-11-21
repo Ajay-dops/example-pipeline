@@ -3,15 +3,27 @@ pipeline{
         label "java-slave"
     }
     environment{
-        DEPLOY_TO = "product"
+        DEPLOY_TO = "production"
     }
     stages{
         stage("Build"){
+            steps{
+                echo " Building the project"
+            }
+        }
+        stage("sonar"){
+            steps{
+                echo " running the sonar"
+            }
+        }
+        stage("Deploy to stg"){
             when{
-                environment name: "DEPLOY_TO", value: "production"
+                expression{
+                    BRANCH_NAME == /(production|staging)/
+                } 
             }
             steps{
-                echo "Building the project"
+                echo " deploying to stg"
             }
         }
     }
