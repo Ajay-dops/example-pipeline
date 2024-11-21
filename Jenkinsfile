@@ -11,7 +11,7 @@ pipeline{
                 environment name: "DEPLOY_TO", value: "production"
             }
             steps{
-                echo "Building the project"
+                echo " Building the DevOps"
             }
         }
     }
